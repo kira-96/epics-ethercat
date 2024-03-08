@@ -74,6 +74,14 @@ char *get_slave_list_filename(const char *program_path)
         slave_list_filename = calloc(root_dir_index + strlen(relative_path) + 1, sizeof(char));
         strncpy(slave_list_filename, real_path, root_dir_index);
     }
+    else
+    {
+        slave_list_filename = calloc(PATH_MAX, sizeof(char));
+        if (NULL != getcwd(slave_list_filename, PATH_MAX))
+        {
+            strcat(slave_list_filename, "/");
+        }
+    }
 
     // Append relative path
     strcat(slave_list_filename, relative_path);
