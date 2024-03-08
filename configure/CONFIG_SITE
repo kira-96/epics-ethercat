@@ -31,3 +31,15 @@ CROSS_COMPILER_TARGET_ARCHS =
 # You must rebuild in the iocBoot directory for this to
 #   take effect.
 #IOCS_APPL_TOP = </IOC/path/to/application/top>
+
+# For application debugging purposes, override the HOST_OPT and/
+#   or CROSS_OPT settings from base/configure/CONFIG_SITE
+#HOST_OPT = NO
+#CROSS_OPT = NO
+
+# These allow developers to override the CONFIG_SITE variable
+# settings without having to modify the configure/CONFIG_SITE
+# file itself.
+-include $(TOP)/../CONFIG_SITE.local
+-include $(TOP)/configure/CONFIG_SITE.local
+-include $(SUPPORT)/configure/CONFIG_SITE
