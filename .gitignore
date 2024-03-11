@@ -2,6 +2,7 @@ etc/builder/ethercat_descriptions.pkl
 etc/builder/iocbuilder_descriptions.pkl
 bin/*
 configure/O.*
+configure/RELEASE.local
 data
 db
 dbd
