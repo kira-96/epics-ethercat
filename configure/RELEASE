@@ -27,11 +27,23 @@ SUPPORT = /dls_sw/prod/R3.14.12.7/support
 ASYN=$(SUPPORT)/asyn/4-41dls2
 BUSY=$(SUPPORT)/busy/1-7-2dls6
 
+# Optional
+# The EPICS Multi-Core Utilities library
+# It can be obtained here: https://github.com/epics-modules/MCoreUtils/
+# MCOREUTILS=$(SUPPORT)/MCoreUtils
+
+# Optional
+# For iocAdmin feature support
+# It can be obtained here: https://github.com/epics-modules/iocStats
+# IOCADMIN=$(SUPPORT)/iocStats
+
 # Cross compile LD library path
 ARCH_LD_LIBRARY_PATH=
 
 # EPICS_BASE usually appears last so other apps can override stuff:
 EPICS_BASE=/dls_sw/epics/R3.14.12.7/base
+
+ethercat_MODULE_VERION = ethercat-7-5-2
 
 # Set RULES here if you want to take build rules from somewhere
 # other than EPICS_BASE:
