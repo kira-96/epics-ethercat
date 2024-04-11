@@ -35,6 +35,11 @@ ethercatApp_DBD += devIocStats.dbd
 ethercatApp_DBD += iocAdmin.dbd
 endif
 
+# autosave
+ifdef AUTOSAVE
+ethercatApp_DBD += asSupport.dbd
+endif
+
 DBD += ethercatApp.dbd
 
 # <name>_registerRecordDeviceDriver.cpp will be created from <name>.dbd
@@ -57,6 +62,9 @@ ethercatApp_LIBS += mcoreutils
 endif
 ifdef IOCADMIN
 ethercatApp_LIBS += devIocStats
+endif
+ifdef AUTOSAVE
+ethercatApp_LIBS += autosave
 endif
 ethercatApp_LIBS += $(EPICS_BASE_IOC_LIBS)
 

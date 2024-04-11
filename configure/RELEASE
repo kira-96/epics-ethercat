@@ -37,6 +37,11 @@ BUSY=$(SUPPORT)/busy/1-7-2dls6
 # It can be obtained here: https://github.com/epics-modules/iocStats
 # IOCADMIN=$(SUPPORT)/iocStats
 
+# Optional
+# Auto save and restore feature support
+# It can be obtained here: https://github.com/epics-modules/autosave
+# AUTOSAVE=$(SUPPORT)/autosave
+
 # Cross compile LD library path
 ARCH_LD_LIBRARY_PATH=
 
