@@ -175,8 +175,28 @@ char *shorten_name(char *name)
     }
     else
     {
+        /*
         sep = strstr(name, SPACE);
         copy_section(shortname, name, sep);
+        */
+        sep = name;
+        while (*sep != '\0')
+        {
+            if ((*sep >= '0' && *sep <= '9') ||
+                (*sep >= 'A' && *sep <= 'Z') ||
+                (*sep >= 'a' && *sep <= 'z') ||
+                *sep == '-' ||
+                *sep == '_')
+            {
+                shortname[sep - name] = *sep;
+                sep += 1;
+            }
+            else
+            {
+                shortname[sep - name] = '\0';
+                break;
+            }
+        }
     }
     return shortname;
 }
