@@ -24,7 +24,6 @@
 #include "unpack.h"
 #include "simulation.h"
 #include "version.h"
-#include "liberror.h"
 
 int debug = 1;
 int selftest = 1;
@@ -33,6 +32,14 @@ int simulation = 0;
 int dumplatency = 0;
 // Time to wait for EtherCAT frame to return. Default to 50 us.
 long frame_time_ns = 50000;
+
+#ifdef FALSE
+#undef FALSE
+#endif
+
+#ifdef TRUE
+#undef TRUE
+#endif
 
 typedef enum _BOOL { FALSE = 0, TRUE = 1} BOOL;
 
@@ -290,8 +297,6 @@ void cyclic_task(void * usr)
         nslaves++;
     }
 
-    /* suppress errors to stderr */
-    ecrt_err_to_stderr = 0;
     while(1)
     {
         rtMessageQueueReceive(scanner->workq, msg, scanner->max_message);
@@ -500,7 +505,7 @@ void cyclic_task(void * usr)
             {
                 if (error_to_console)
                 {
-                    fprintf(stderr,"etherlab library error: %s", ecrt_errstring);
+                    fprintf(stderr,"etherlab library error: %d", slave_info_status);
                     error_to_console = FALSE;
                 }
             }
